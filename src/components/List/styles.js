@@ -7,6 +7,7 @@ export const Container = styled.div`
 	/* flex-grow: 0;
 	flex-shrink: 0;
 	flex-basis: 320px; */
+	opacity: ${props => props.done ? 0.6 : 1};
 
 	/* Estiliza toda div que tem '+ div' */
 	& + div { 
