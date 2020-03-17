@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
+import BoardContext from '../Board/context';
 import { Container, Label } from './styles';
+import Board from '../Board';
 
 export default function Card({ data, index }) {
 	const ref = useRef();
+	const { move } = useContext(BoardContext);
 	const [{ isDragging }, dragRef ] = useDrag ({
 		item: { type: 'CARD', index},
 		collect: monitor => ({
@@ -36,7 +39,7 @@ export default function Card({ data, index }) {
 				return;
 			}
 
-			console.log('teste');
+			move(draggedIndex, targetIndex);
 			
 		}
 	});
